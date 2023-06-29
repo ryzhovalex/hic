@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <float.h>
 
-void helloworld() {
+void HelloWorld() {
   printf("Hello, world!\n");
 
   // This block returns Unknown escape sequence error
@@ -16,14 +16,14 @@ void helloworld() {
 /**
  * Prints Fahrenheit-Celsius table.
  *
- * For fahr = 0, 20, ..., 300; floating-point version 
- * 
- * @see print_celsius_fahrenheit_table() For inverted analog
+ * For fahr = 0, 20, ..., 300; floating-point version
+ *
+ * @see PrintFahrenheitCelsiusTable for inverted analog
 */
-void print_fahrenheit_celsius_table() {
+void PrintFahrenheitCelsiusTable() {
   float fahr, celsius;
   int lower, upper, step;
-  
+
   // Go from lower to upper limit making conversion print each step
   lower = 0;
   upper = 300;
@@ -49,13 +49,13 @@ void print_fahrenheit_celsius_table() {
  * Prints Celsius-Fahrenheit table.
  *
  * For celsius = 0, 20, ..., 300
- * 
- * @see print_fahrenheit_celsius_table() For inverted analog
+ *
+ * @see PrintFahrenheitCelsiusTable for inverted analog
 */
-void print_celsius_fahrenheit_table() {
+void PrintCelsiusFahrenheitTable() {
   float fahr, celsius;
   int lower, upper, step;
-  
+
   // Go from lower to upper limit making conversion print each step
   lower = 0;
   upper = 300;
@@ -80,10 +80,10 @@ void print_celsius_fahrenheit_table() {
 /**
  * Prints Fahrenheit-Celsius table in reverse order.
 */
-void print_fahrenheit_celsius_table_reversed() {
+void PrintFahrenheitCelsiusTableReversed() {
   float fahr, celsius;
   int lower, upper, step;
-  
+
   lower = 0;
   upper = 300;
   step = 20;
@@ -107,7 +107,7 @@ void print_fahrenheit_celsius_table_reversed() {
 /**
  *
  * Exercise 2.1
- * 
+ *
  * Program to print maximum, minimum limits of char, int, long using
  * calculation
  *
@@ -116,11 +116,11 @@ void print_fahrenheit_celsius_table_reversed() {
  * (unsigned <type>) will cast it unsigned.
  * >> 1 right shifts 1 bit to remove the sign bit.
  * (<type>) casting it the required type again
- * 
+ *
  * @see https://www.learntosolveit.com/cprogramming/ex_2.1_cal_limits
  *
 */
-void count_the_ranges() {
+void CountTheRanges() {
     printf("Ranges of various floating-point types through calculation:\n");
 
     printf("Minimum Signed Char %d\n",-(char)((unsigned char) ~0 >> 1) - 1);
@@ -161,7 +161,7 @@ void count_the_ranges() {
     printf("Maximum Unsigned Long %lu\n", ULONG_MAX);
 }
 
-void copy_input_to_output() {
+void CopyInputToOutput() {
   int c = getchar();
 
   while (c != EOF) {
@@ -176,7 +176,7 @@ void copy_input_to_output() {
 /**
  * Verify that the expression getchar() != EOF is 0 or 1
 */
-void verify_EOF_value() {
+void VerifyEofValue() {
     int c;
 
     while ((c = getchar()) != EOF) {
@@ -194,9 +194,9 @@ void verify_EOF_value() {
     }
 }
 
-void count_input_lines() {
+void CountInputLines() {
   int c, lines_amount;
-  
+
   // After EOF occured, counting is over and amount is calculated
   lines_amount = 0;
   while ((c = getchar()) != EOF) {
@@ -211,7 +211,7 @@ void count_input_lines() {
 /**
  * Counts whitespaces from given input until EOF.
 */
-void count_whitespaces() {
+void CountWhitespaces() {
   int c;
   int whitespaces_amount = 0;
 
@@ -227,11 +227,11 @@ void count_whitespaces() {
 
 /**
  * Append given char to given string pointer.
- * 
+ *
  * @see https://stackoverflow.com/questions/10279718/append-char-to-string-in-c
  * @return String with char appended
 */
-char* append_char_to_str(char* s, char c) {
+char* AppendCharToStr(char* s, char c) {
   size_t len = strlen(s);
 
   // Allocate one more byte for a new char, and one for trailing zero,
@@ -252,11 +252,11 @@ char* append_char_to_str(char* s, char c) {
  * Copy input to output, replacing each string of one or more blanks by a
  * single blank.
 */
-void copy_input_to_output_truncating_redundant_blanks() {
+void CopyInputToOutputTruncatingRedundantBlanks() {
   int c;
   char* res = "";
-  bool is_prev_blank = false;
-  
+  bool isPrevBlank = false;
+
   printf("Input some text:\n");
 
   // Add the characters one by one to result string. Yeah, i know nothing at
@@ -264,17 +264,17 @@ void copy_input_to_output_truncating_redundant_blanks() {
   // Maybe, it's slightly better to do it line-by-line.
   while ((c = getchar()) != EOF) {
     // Don't add several blanks in the row
-    if (!is_prev_blank || !isspace(c)) {
-      res = append_char_to_str(res, c);
+    if (!isPrevBlank || !isspace(c)) {
+      res = AppendCharToStr(res, c);
     }
 
     // Make decision for next chars according to the fact of receiving blank
     // character
-    is_prev_blank = isspace(c) > 0;
+    isPrevBlank = isspace(c) > 0;
   }
 
   printf("Result: %s\n", res);
-  
+
   // I'm not sure if freeing memory here is required
   free(res);
 }
@@ -282,15 +282,15 @@ void copy_input_to_output_truncating_redundant_blanks() {
 /**
  * Copy input to output, replacing each string of one or more blanks by a
  * single blank.
- * 
+ *
  * This is version 2 using putchar() which is maybe better solution than
  * playing with memory allocation.
- * 
+ *
  * Also this version prints output line-by-line, instead of full text inputted.
 */
-void copy_input_to_output_truncating_redundant_blanks_v2() {
+void CopyInputToOutputTruncatingRedundantBlanksV2() {
   int c;
-  bool is_prev_blank = false;
+  bool isPrevBlank = false;
   bool has_to_show_output_message = true;
 
   printf("Input:\n");
@@ -301,7 +301,7 @@ void copy_input_to_output_truncating_redundant_blanks_v2() {
       has_to_show_output_message = false;
     }
 
-    if (!is_prev_blank || !isspace(c)) {
+    if (!isPrevBlank || !isspace(c)) {
       if (isspace(c)) {
         if (c == '\n') {
           // Preserve end of line char since we're reading line-by-line and
@@ -321,24 +321,12 @@ void copy_input_to_output_truncating_redundant_blanks_v2() {
       } else {
         putchar(c);
       }
-    } 
+    }
 
-    is_prev_blank = isspace(c) > 0;
+    isPrevBlank = isspace(c) > 0;
   }
 }
 
 int main() {
-  // helloworld();
-  // print_fahrenheit_celsius_table(); 
-  // print_celsius_fahrenheit_table(); 
-  // print_fahrenheit_celsius_table_reversed();
-  // copy_input_to_output();
-  // verify_EOF_value();
-  // count_input_lines();
-  // count_whitespaces();
-  // copy_input_to_output_truncating_redundant_blanks();
-  copy_input_to_output_truncating_redundant_blanks_v2();
-  // count_the_ranges();
-
   return 0;
 }
