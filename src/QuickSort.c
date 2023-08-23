@@ -15,7 +15,7 @@ int main() {
     return retcode;
 }
 
-int SortQuick(int a[], int left, int right) {
+int QuickSort(int a[], int left, int right) {
     int i, last;
 
     // stop if array contains fewer than two elements
