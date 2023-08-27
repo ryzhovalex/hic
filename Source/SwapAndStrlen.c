@@ -70,3 +70,21 @@ int Strlen(char *s) {
 
     return n;
 }
+
+int Strlen2(char *s) {
+    // set p to start of s
+    char *p = s;
+
+    // iterate p until the null terminator
+    while (*p != '\0') {
+        p++;
+    }
+
+    // finally calculate how many characters we iterated, we don't use `+1`
+    // here, since on the last instruction of `p++` we reached '\0', but
+    // we don't consider null termination in the final length calculation
+    //
+    // so `p - s` gives number of characters advanced over, that is, the
+    // string length
+    return p - s;
+}
