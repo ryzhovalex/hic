@@ -6,7 +6,7 @@
             "command": "mkdir",
             "args": [
                 "-p",
-                "bin/debug/${relativeFileDirname}"
+                "Bin/Debug/${relativeFileDirname}"
             ]
         },
         {
@@ -21,7 +21,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${cwd}/bin/debug/${relativeFileDirname}/${fileBasenameNoExtension}"
+                "${cwd}/Bin/Debug/${relativeFileDirname}/${fileBasenameNoExtension}"
             ],
             "problemMatcher": [
                 "$gcc"
