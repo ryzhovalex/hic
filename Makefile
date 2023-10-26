@@ -1,8 +1,8 @@
 export t="Main"
 
 
-compile:
-	@gcc Source/$(t).c -o Bin/a.out
+build:
+	@gcc Source/$(t).c -o Bin/main
 
-run: compile
-	@./Bin/a.out
+run: build
+	@./Bin/main
