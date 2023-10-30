@@ -20,6 +20,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "Source/Utils.c",
                 "-o",
                 "${cwd}/Bin/Debug/${relativeFileDirname}/${fileBasenameNoExtension}"
             ],
